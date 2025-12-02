@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PublicRoute from '@/utils/publicRoute';
+import PublicRoute from '@/components/public-route';
 
 export interface LayoutProps {
   children?: React.ReactNode;

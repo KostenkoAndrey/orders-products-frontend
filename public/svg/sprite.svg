@@ -23,5 +23,30 @@
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.25" d="M9.671 4.136c0.117-1.194 1.115-2.119 2.329-2.119s2.213 0.925 2.329 2.109l0.001 0.010c0.109 1.201 1.111 2.134 2.331 2.134 0.359 0 0.698-0.081 1.002-0.225l-0.014 0.006c0.284-0.132 0.617-0.209 0.967-0.209 1.292 0 2.34 1.048 2.34 2.34 0 0.781-0.383 1.473-0.971 1.898l-0.007 0.005c-0.606 0.429-0.996 1.127-0.996 1.915s0.39 1.487 0.989 1.911l0.007 0.005c0.595 0.43 0.977 1.121 0.977 1.902 0 1.292-1.048 2.34-2.34 2.34-0.351 0-0.683-0.077-0.982-0.215l0.014 0.006c-0.29-0.138-0.629-0.219-0.988-0.219-1.22 0-2.222 0.933-2.33 2.125l-0.001 0.009c-0.117 1.194-1.115 2.119-2.329 2.119s-2.213-0.925-2.329-2.109l-0.001-0.010c-0.109-1.201-1.111-2.134-2.331-2.134-0.359 0-0.699 0.081-1.003 0.225l0.014-0.006c-0.284 0.132-0.617 0.209-0.967 0.209-1.292 0-2.34-1.048-2.34-2.34 0-0.781 0.383-1.473 0.97-1.898l0.007-0.005c0.606-0.429 0.996-1.127 0.996-1.915s-0.39-1.487-0.989-1.911l-0.007-0.005c-0.594-0.43-0.976-1.121-0.976-1.901 0-1.292 1.048-2.34 2.34-2.34 0.35 0 0.681 0.077 0.979 0.214l-0.015-0.006c0.29 0.138 0.629 0.219 0.988 0.219 1.22 0 2.222-0.933 2.33-2.125l0.001-0.009"></path>
             <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.25" d="M15 12c0 1.657-1.343 3-3 3s-3-1.343-3-3c0-1.657 1.343-3 3-3s3 1.343 3 3z"></path>
         </symbol>
+        <symbol id="list" viewBox="0 0 24 24">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M3 5h0.010"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M3 12h0.010"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M3 19h0.010"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 5h13"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 12h13"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 19h13"></path>
+        </symbol>
+        <symbol id="trash" viewBox="0 0 24 24">
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M10 11v6"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M14 11v6"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M19 6v14c0 1.105-0.895 2-2 2v0h-10c-1.105 0-2-0.895-2-2v0-14"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M3 6h18"></path>
+            <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 6v-2c0-1.105 0.895-2 2-2v0h4c1.105 0 2 0.895 2 2v0 2"></path>
+        </symbol>
+        <symbol id="right-arrow" viewBox="0 0 18 32">
+            <path d="M2.499 1.582c0.599-0.513 1.501-0.444 2.014 0.155l11.429 13.333c0.459 0.535 0.459 1.324 0 1.859l-11.429 13.333c-0.513 0.599-1.415 0.669-2.014 0.155s-0.668-1.415-0.155-2.014l10.632-12.404-10.632-12.404c-0.513-0.599-0.444-1.501 0.155-2.014z"></path>
+        </symbol>
+        <symbol id="exit" viewBox="0 0 32 32">
+            <path d="M2.575 0.454c-0.586-0.586-1.536-0.586-2.121 0s-0.586 1.536 0 2.121l13.425 13.425-13.425 13.425c-0.586 0.586-0.586 1.536 0 2.121s1.536 0.586 2.121 0l13.425-13.425 13.425 13.425c0.586 0.586 1.536 0.586 2.121 0s0.586-1.536 0-2.121l-13.425-13.425 13.425-13.425c0.586-0.586 0.586-1.536 0-2.121s-1.536-0.586-2.121 0l-13.425 13.425-13.425-13.425z"></path>
+        </symbol><symbol id="plus" viewBox="0 0 24 24">
+        <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M5 12h14"></path>
+        <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M12 5v14"></path>
+    </symbol>
+
     </defs>
 </svg>

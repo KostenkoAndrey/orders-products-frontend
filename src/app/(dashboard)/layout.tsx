@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PrivatRoute from '@/utils/privatRoute';
+import PrivatRoute from '@/components/privat-route';
 import NavigationMenu from '@/components/navigation-menu';
 import TopMenu from '@/components/top-menu';
 
@@ -13,7 +13,7 @@ const Layout = async ({ children }: LayoutProps) => {
     <PrivatRoute>
       <NavigationMenu />
       <TopMenu />
-      <div className='ml-60 max-w-[1280px] w-full m-auto bg-[#E8E8E8]'>{children}</div>
+      <div className='ml-50 max-w-[1280px] m-auto bg-[#E8E8E8]'>{children}</div>
     </PrivatRoute>
   );
 };

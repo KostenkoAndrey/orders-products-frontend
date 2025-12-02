@@ -1,14 +1,20 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { loginUser, registerUser, AuthRequest, getOauthUrl } from '@/api/auth-api';
+import {
+  loginUser,
+  registerUser,
+  AuthRequest,
+  getOauthUrl,
+} from '@/api/api-auth';
 import useAuthLoading from '@/hooks/useAuthLoading';
 
 type AuthMethod = 'login' | 'register';
 
 const useAuth = (method: AuthMethod = 'login') => {
   const router = useRouter();
-  const { loading, setAuthLoading, setGoogleLoading, isAnyLoading } = useAuthLoading();
+  const { loading, setAuthLoading, setGoogleLoading, isAnyLoading } =
+    useAuthLoading();
 
   const onSubmit = async (data: AuthRequest) => {
     try {

@@ -1,4 +1,4 @@
-import { api } from '@/api/api';
+import { apiServer } from '@/api/api-server';
 
 interface Price {
   value: number;
@@ -26,9 +26,7 @@ export interface Product {
 interface productsResponse {
   status: number;
   message: string;
-  data: {
-    products: Product[];
-  };
+  data: Product[];
 }
 
 interface productResponse {
@@ -39,7 +37,13 @@ interface productResponse {
   };
 }
 
-export const getProduct = () => api.get<productsResponse>('products');
-export const getProductById = (productId: string) => api.get<productResponse>('products', productId);
-export const createProduct = (credentials: Product) => api.post<productResponse>(credentials, 'products');
-export const deleteProduct = (productId: string) => api.delete<void>('products', productId);
+export const getProduct = () => apiServer.get<productsResponse>('products');
+
+export const getProductById = (productId: string) =>
+  apiServer.get<productResponse>('products', productId);
+
+export const createProduct = (credentials: Product) =>
+  apiServer.post<productResponse>(credentials, 'products');
+
+export const deleteProduct = (productId: string) =>
+  apiServer.delete<void>('products', productId);

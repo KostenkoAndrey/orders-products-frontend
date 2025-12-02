@@ -9,10 +9,11 @@ import InputPassword from '@/components/input-password';
 import AuthButton from '@/components/auth-button';
 import AuthGoogleButton from '@/components/auth-google-button';
 import useAuth from '@/hooks/useAuth';
-import { AuthRequest } from '@/api/auth-api';
+import { AuthRequest } from '@/api/api-auth';
 
 const Page = () => {
-  const { loading, isAnyLoading, onSubmit, onGoogleSubmit } = useAuth('register');
+  const { loading, isAnyLoading, onSubmit, onGoogleSubmit } =
+    useAuth('register');
   const {
     register,
     handleSubmit,
@@ -64,7 +65,11 @@ const Page = () => {
           </>
         }
         button={
-          <AuthButton type='submit' disabled={isAnyLoading} className='text-white hover:text-black hover:bg-[#007bff]'>
+          <AuthButton
+            type='submit'
+            disabled={isAnyLoading}
+            className='text-white hover:text-black hover:bg-[#007bff]'
+          >
             {loading.auth ? 'Signing up...' : 'Sign up'}
           </AuthButton>
         }
@@ -72,7 +77,11 @@ const Page = () => {
           <AuthGoogleButton
             onClick={onGoogleSubmit}
             disabled={isAnyLoading}
-            label={loading.google ? 'Continuing with Google...' : 'Log in with Google'}
+            label={
+              loading.google
+                ? 'Continuing with Google...'
+                : 'Log in with Google'
+            }
           />
         }
         linkText={'Log in'}

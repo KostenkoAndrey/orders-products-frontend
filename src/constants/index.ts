@@ -25,3 +25,18 @@ export const navItems: NavItem[] = [
     href: '/settings',
   },
 ];
+
+export const MONTHS_LIST = [
+  'ЯНВ',
+  'ФЕВ',
+  'МАР',
+  'АПР',
+  'МАЙ',
+  'ИЮН',
+  'ИЮЛ',
+  'АВГ',
+  'СЕН',
+  'ОКТ',
+  'НОЯ',
+  'ДЕК',
+];

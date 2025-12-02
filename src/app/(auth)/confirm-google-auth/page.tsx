@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { confirmOauth } from '@/api/auth-api';
+import { confirmOauth } from '@/api/api-auth';
 
 const Page = () => {
   const router = useRouter();

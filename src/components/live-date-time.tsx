@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import SvgIcon from '@/components/svg-icon';
+import { formateDate } from '@/utils/formateDate';
+import formatTime from '@/utils/formatTime';
 
 const LiveDateTime = () => {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
@@ -11,18 +13,6 @@ const LiveDateTime = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const formateDate = (date: Date) => {
-    const day = date.getDate();
-    const month = date.toLocaleString('en-US', { month: 'short' }).toUpperCase();
-    const year = date.getFullYear();
-    return `${day} ${month}, ${year}`;
-  };
-  const formatTime = (date: Date) => {
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    const seconds = date.getSeconds().toString().padStart(2, '0');
-    return `${hours}:${minutes}:${seconds}`;
-  };
   return (
     <div className='flex flex-col items-start'>
       <span className='text-sm font-semibold text-gray-700'>Today</span>
