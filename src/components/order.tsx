@@ -16,18 +16,13 @@ export interface OrderProps {
 const Order = ({ orders }: OrderProps) => {
   const [OrderId, setOrderId] = useState<string | null>(null);
 
-  const handleOrderClick = useCallback((id: string) => {
+  const handleOrderClick = (id: string) => {
     setOrderId((prev) => (prev === id ? null : id));
-  }, []);
+  };
 
-  const handleClose = useCallback(() => {
+  const handleClose = () => {
     setOrderId(null);
-  }, []);
-
-  const selectedOrder = useMemo(
-    () => orders.find((order) => order._id === OrderId),
-    [orders, OrderId],
-  );
+  };
 
   const isActive = OrderId !== null;
   const order = orders.find((order) => order._id === OrderId);
@@ -45,10 +40,9 @@ const Order = ({ orders }: OrderProps) => {
         />
 
         <div
-          className={`relative transition-transform duration-700 ease-in-out bg-inherit rounded-[4px]
+          className={`relative transition-transform duration-700 ease-in-out bg-inherit
         ${isActive ? 'flex-[0.57] opacity-100' : 'flex-[0] opacity-0 w-0'}`}
         >
-          <ProductHeader orderName={order?.title}></ProductHeader>
           <IconButton
             onClick={handleClose}
             className={
@@ -58,9 +52,9 @@ const Order = ({ orders }: OrderProps) => {
           >
             <SvgIcon name={'exit'} className={'w-2 h-2 fill-gray-400'} />
           </IconButton>
-
-          {selectedOrder?.products && (
-            <ProductList products={selectedOrder.products} />
+          <ProductHeader orderName={order?.title}></ProductHeader>
+          {order?.products && (
+            <ProductList products={order.products} isActive={isActive} />
           )}
         </div>
       </div>

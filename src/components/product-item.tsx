@@ -7,12 +7,15 @@ import { deleteProductAction } from '@/app/actions/product-actions';
 import SvgIcon from '@/components/svg-icon';
 import IconButton from '@/components/icon-button';
 import ModalDelete from '@/components/modal-delete';
+import { formatShortDate } from '@/utils/formateDate';
+import { log } from 'next/dist/server/typescript/utils';
 
 export interface ProductItemProps {
   product: Product;
+  isActive?: boolean;
 }
 
-const ProductItem = ({ product }: ProductItemProps) => {
+const ProductItem = ({ product, isActive }: ProductItemProps) => {
   const [isPending, startTransition] = useTransition();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -36,41 +39,82 @@ const ProductItem = ({ product }: ProductItemProps) => {
   const handleCancel = () => {
     setIsModalOpen(false);
   };
-
   return (
     <>
-      <li className='flex items-center justify-between gap-10 px-11 py-0.5 border border-gray-200 bg-gray-100 hover:shadow-lg'>
-        <div className='flex items-center gap-9'>
-          <span
-            className={`rounded-full w-2.5 h-2.5 ${product.isNew ? 'bg-green-500' : 'bg-gray-500'} `}
-          />
+      <li
+        className={`grid items-center gap-6 px-11 py-3 border border-gray-300 bg-gray-100 
+              hover:shadow-lg transition-all duration-300 ${
+                isActive
+                  ? 'grid-cols-[auto_1fr_auto_auto]'
+                  : 'grid-cols-[auto_minmax(150px,1fr)_100px_140px_90px_100px_auto] rounded-[4px]'
+              }`}
+      >
+        <span
+          className={`rounded-full w-2.5 h-2.5 flex-shrink-0 ${
+            product.isNew ? 'bg-green-500' : 'bg-gray-500'
+          }`}
+        />
 
-          <div className='relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0'>
+        <div className='flex items-center gap-3 min-w-0'>
+          <div className='relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0'>
             <Image
               src={product.photo || '/pictures/cat.jpg'}
               alt={product.title}
               fill
-              sizes='32px'
+              sizes='40px'
               className='object-cover'
             />
           </div>
 
-          <div>
-            <div className='text-gray-600'>{product.title}</div>
-            <div className='text-gray-500'>{product.serialNumber}</div>
+          <div className='min-w-0'>
+            <div className='text-gray-700 font-medium truncate'>
+              {product.title}
+            </div>
+            <div className='text-gray-500 text-xs truncate'>
+              {product.serialNumber}
+            </div>
           </div>
         </div>
-        <span className='text-[#9ACD32]'>
-          {product.isNew ? 'free' : 'Under repair'}
+
+        <span className='text-[#9ACD32] font-medium text-center whitespace-nowrap'>
+          {product.isNew ? 'свободен' : 'Б/У'}
         </span>
+
+        {!isActive && (
+          <>
+            <div className='flex flex-col gap-0.5 text-center'>
+              <div className='text-gray-500 text-xs whitespace-nowrap'>
+                {formatShortDate(product.guarantee.start)}
+              </div>
+              <div className='text-gray-600 text-xs whitespace-nowrap'>
+                {formatShortDate(product.guarantee.end)}
+              </div>
+            </div>
+            <span className='text-gray-500 text-xs text-center whitespace-nowrap'>
+              {product.isNew ? 'new' : 'second hand'}
+            </span>
+            <div className='flex flex-col gap-0.5 text-right'>
+              {product.price.map((el, i) => (
+                <div
+                  key={i}
+                  className='text-gray-400 text-xs whitespace-nowrap'
+                >
+                  {el.value} {el.symbol}
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
         <IconButton
           onClick={handleDeleteClick}
-          className={`p-2 hover:bg-[#E8E8E8] rounded ${isPending && 'cursor-not-allowed opacity-50'}`}
+          disabled={isPending}
+          className={`p-2 hover:bg-[#E8E8E8] rounded transition-colors justify-self-center ${
+            isPending && 'cursor-not-allowed opacity-50'
+          }`}
+          aria-label='Delete product'
         >
-          <SvgIcon
-            name={'trash'}
-            className={'w-6 h-6 stroke-gray-600 fill-none'}
-          />
+          <SvgIcon name='trash' className='w-6 h-6 stroke-gray-600 fill-none' />
         </IconButton>
       </li>
       <ModalDelete

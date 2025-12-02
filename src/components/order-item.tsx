@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Order } from '@/api/api-order';
 import SvgIcon from '@/components/svg-icon';
-import { formatShortDate } from '@/utils/formateDate';
+import { formatDayMonth, formatShortDate } from '@/utils/formateDate';
 import IconButton from '@/components/icon-button';
 import { deleteOrderAction } from '@/app/actions/order-actions';
 import { useTransition } from 'react';
@@ -39,6 +39,12 @@ const OrderItem = ({ item, onClick, isSelected, isActive }: OrderItemProps) => {
     setIsModalOpen(false);
   };
 
+  const latestProduct = item?.products?.length
+    ? [...item.products].sort((a, b) => b.date.localeCompare(a.date))[0]
+    : undefined;
+
+  const latestDate = latestProduct?.date;
+  console.log('latestDate:', latestDate);
   return (
     <>
       <li
@@ -69,7 +75,9 @@ const OrderItem = ({ item, onClick, isSelected, isActive }: OrderItemProps) => {
             </div>
           </div>
           <div className='text-left'>
-            <div className='text-gray-500 text-[12px]'>04 / 12</div>
+            <div className='text-gray-500 text-[12px]'>
+              {latestDate ? formatDayMonth(latestProduct.date) : 'N/A'}
+            </div>
             <div className='text-gray-600 text-[12px]'>
               {formatShortDate(item.date)}
             </div>
