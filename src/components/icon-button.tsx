@@ -9,7 +9,7 @@ const IconButton = ({ children, className = '', ...rest }: IconButtonProps) => {
   return (
     <button
       {...rest}
-      className={`flex justify-center items-center cursor-pointer transition-transform 
+      className={`flex justify-center items-center cursor-pointer transition-all 
          duration-700 ease-in-out ${className}`}
     >
       {children}

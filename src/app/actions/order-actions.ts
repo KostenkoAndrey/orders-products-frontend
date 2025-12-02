@@ -3,9 +3,9 @@
 import { revalidatePath } from 'next/cache';
 import { deleteOrder } from '@/api/api-order';
 
-export async function deleteOrderAction(productId: string) {
+export async function deleteOrderAction(orderId: string) {
   try {
-    await deleteOrder(productId);
+    await deleteOrder(orderId);
     revalidatePath('/orders');
     return { success: true };
   } catch (error) {

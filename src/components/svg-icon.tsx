@@ -7,7 +7,7 @@ export interface SvgIconProps {
 
 const SvgIcon = ({ name, className }: SvgIconProps) => {
   return (
-    <svg className={className}>
+    <svg className={`transition-all duration-700 ease-in-out ${className}`}>
       <use href={`/svg/sprite.svg#${name}`} />
     </svg>
   );

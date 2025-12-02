@@ -1,7 +1,6 @@
 import React from 'react';
 import { getOrders, Order as OrderItems } from '@/api/api-order';
 import Order from '@/components/order';
-import { redirect } from 'next/navigation';
 
 export default async function Page() {
   let orders: OrderItems[] = [];
