@@ -18,7 +18,6 @@ export default function LogoUploader({
   placeholder,
   id,
   onChange,
-  value,
   ...rest
 }: LogoUploaderProps) {
   const [preview, setPreview] = useState<string | null>(null);
@@ -44,9 +43,11 @@ export default function LogoUploader({
           ${square ? 'w-full' : 'w-40 rounded-full'}`}
       >
         {preview ? (
-          <img
+          <Image
             src={preview}
             alt='Preview'
+            width={160}
+            height={160}
             className='w-full h-full object-cover'
           />
         ) : (
@@ -65,7 +66,7 @@ export default function LogoUploader({
         )}
 
         <input
-          {...rest}
+          {...(rest as Omit<typeof rest, 'value'>)}
           ref={inputRef}
           id={id}
           type='file'

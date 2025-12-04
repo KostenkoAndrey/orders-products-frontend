@@ -76,7 +76,7 @@ const ModalAddProduct = ({ onModalClose, orderId }: ModalAddProductProps) => {
           <Controller
             name='photo'
             control={control}
-            render={({ field: { onChange, value } }) => (
+            render={({ field: { onChange } }) => (
               <LogoUploader placeholder='Upload photo' onChange={onChange} />
             )}
           />
@@ -234,7 +234,8 @@ const ModalAddProduct = ({ onModalClose, orderId }: ModalAddProductProps) => {
       <button
         type='submit'
         disabled={isPending}
-        className='w-full bg-[#4ade80] text-white px-6 py-3 rounded-xl hover:bg-[#22c55e] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 font-medium shadow-md'
+        className='w-full bg-[#4ade80] text-white px-6 py-3 rounded-xl hover:bg-[#22c55e] disabled:opacity-50
+        disabled:cursor-not-allowed transition-all duration-200 font-medium shadow-md cursor-pointer'
       >
         {isPending ? 'Adding...' : 'Add product'}
       </button>

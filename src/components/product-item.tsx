@@ -8,7 +8,6 @@ import SvgIcon from '@/components/svg-icon';
 import IconButton from '@/components/icon-button';
 import ModalDelete from '@/components/modal-delete';
 import { formatShortDate } from '@/utils/formateDate';
-import { log } from 'next/dist/server/typescript/utils';
 import Modal from '@/components/modal';
 
 export interface ProductItemProps {
@@ -83,12 +82,12 @@ const ProductItem = ({ product, isActive }: ProductItemProps) => {
 
         {!isActive && (
           <>
-            <div className='flex flex-col gap-0.5 text-center'>
+            <div className='flex flex-col items-end gap-0.5 text-center'>
               <div className='text-gray-500 text-xs whitespace-nowrap'>
-                {formatShortDate(product.guarantee.start)}
+                {`с ${formatShortDate(product.guarantee.start)}`}
               </div>
               <div className='text-gray-600 text-xs whitespace-nowrap'>
-                {formatShortDate(product.guarantee.end)}
+                {`по ${formatShortDate(product.guarantee.end)}`}
               </div>
             </div>
             <span className='text-gray-500 text-xs text-center whitespace-nowrap'>

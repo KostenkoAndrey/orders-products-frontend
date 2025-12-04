@@ -1,12 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
-import {
-  deleteProduct,
-  createProduct,
-  addProduct,
-  createProductWithFile,
-} from '@/api/api-product';
+import { deleteProduct, createProductWithFile } from '@/api/api-product';
 
 export async function deleteProductAction(productId: string) {
   try {

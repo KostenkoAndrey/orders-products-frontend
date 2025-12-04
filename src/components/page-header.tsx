@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import IconButton from '@/components/icon-button';
 import SvgIcon from '@/components/svg-icon';
 
