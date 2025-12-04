@@ -34,19 +34,4 @@ export const apiClient = {
       method: 'POST',
       body: JSON.stringify(body),
     }),
-
-  put: <T>(body: unknown, ...paths: string[]) =>
-    sendRequest<T>(buildUrl(...paths), {
-      method: 'PUT',
-      body: JSON.stringify(body),
-    }),
-
-  patch: <T>(body: unknown, ...paths: string[]) =>
-    sendRequest<T>(buildUrl(...paths), {
-      method: 'PATCH',
-      body: JSON.stringify(body),
-    }),
-
-  delete: <T>(...paths: string[]) =>
-    sendRequest<T>(buildUrl(...paths), { method: 'DELETE' }),
 };

@@ -9,6 +9,7 @@ import IconButton from '@/components/icon-button';
 import ModalDelete from '@/components/modal-delete';
 import { formatShortDate } from '@/utils/formateDate';
 import { log } from 'next/dist/server/typescript/utils';
+import Modal from '@/components/modal';
 
 export interface ProductItemProps {
   product: Product;
@@ -77,7 +78,7 @@ const ProductItem = ({ product, isActive }: ProductItemProps) => {
         </div>
 
         <span className='text-[#9ACD32] font-medium text-center whitespace-nowrap'>
-          {product.isNew ? 'свободен' : 'Б/У'}
+          {product.isNew ? 'свободен' : 'в работе'}
         </span>
 
         {!isActive && (
@@ -91,7 +92,7 @@ const ProductItem = ({ product, isActive }: ProductItemProps) => {
               </div>
             </div>
             <span className='text-gray-500 text-xs text-center whitespace-nowrap'>
-              {product.isNew ? 'new' : 'second hand'}
+              {product.isNew ? 'новый' : 'Б/У'}
             </span>
             <div className='flex flex-col gap-0.5 text-right'>
               {product.price.map((el, i) => (
@@ -117,17 +118,18 @@ const ProductItem = ({ product, isActive }: ProductItemProps) => {
           <SvgIcon name='trash' className='w-6 h-6 stroke-gray-600 fill-none' />
         </IconButton>
       </li>
-      <ModalDelete
-        isOpen={isModalOpen}
-        title={'Are you sure you want to delete this product?'}
-        productTitle={product.title}
-        serialNumber={product.serialNumber}
-        photo={product.photo || '/pictures/cat.jpg'}
-        isNew={product.isNew}
-        onConfirm={handleConfirmDelete}
-        onCancel={handleCancel}
-        isPending={isPending}
-      />
+      <Modal isOpen={isModalOpen} onClose={handleCancel}>
+        <ModalDelete
+          title={'Are you sure you want to delete this product?'}
+          productTitle={product.title}
+          serialNumber={product.serialNumber}
+          photo={product.photo || '/pictures/cat.jpg'}
+          isNew={product.isNew}
+          onConfirm={handleConfirmDelete}
+          onCancel={handleCancel}
+          isPending={isPending}
+        />
+      </Modal>
     </>
   );
 };

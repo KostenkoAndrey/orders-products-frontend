@@ -24,10 +24,15 @@ interface OrderResponse {
   data: Order;
 }
 
+export type addOrder = Pick<Order, 'title' | 'date' | 'description'>;
+
 export const getOrders = () => apiServer.get<OrdersResponse>('orders');
+
 export const getOrderById = (orderId: string) =>
   apiServer.get<OrderResponse>('orders', orderId);
-export const createOrder = (credentials: Order) =>
+
+export const createOrder = (credentials: addOrder) =>
   apiServer.post<OrderResponse>(credentials, 'orders');
+
 export const deleteOrder = (orderId: string) =>
   apiServer.delete<void>('orders', orderId);

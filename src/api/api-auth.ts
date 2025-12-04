@@ -28,16 +28,16 @@ export interface confirmOauthRequest {
   code: string;
 }
 
+export const registerUser = (credentials: AuthRequest) =>
+  apiClient.post<AuthResponse>(credentials, 'auth', 'register');
+
 export const loginUser = (credentials: AuthRequest) =>
   apiClient.post<AuthResponse>(credentials, 'auth', 'login');
 
-export const registerUser = (credentials: AuthRequest) =>
-  apiClient.post<AuthResponse>(credentials, 'auth', 'register');
+export const logoutUser = () => apiClient.post<void>({}, 'auth', 'logout');
 
 export const getOauthUrl = () =>
   apiClient.get<getOauthResponse>('auth', 'get-oauth-url');
 
 export const confirmOauth = (credentials: confirmOauthRequest) =>
   apiClient.post<AuthResponse>(credentials, 'auth', 'confirm-oauth');
-
-export const logoutUser = () => apiClient.post<void>({}, 'auth', 'logout');

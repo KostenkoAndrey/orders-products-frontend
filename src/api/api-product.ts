@@ -36,14 +36,18 @@ interface productResponse {
     product: Product;
   };
 }
+export type addProduct = Omit<Product, '_id'>;
 
-export const getProduct = () => apiServer.get<productsResponse>('products');
+export const getProducts = () => apiServer.get<productsResponse>('products');
 
 export const getProductById = (productId: string) =>
   apiServer.get<productResponse>('products', productId);
 
-export const createProduct = (credentials: Product) =>
+export const createProduct = (credentials: addProduct) =>
   apiServer.post<productResponse>(credentials, 'products');
+
+export const createProductWithFile = (formData: FormData) =>
+  apiServer.postFormData<productResponse>(formData, 'products');
 
 export const deleteProduct = (productId: string) =>
   apiServer.delete<void>('products', productId);
